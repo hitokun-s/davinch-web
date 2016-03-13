@@ -57,6 +57,8 @@ app.use(function(err, req, res, next) {
 
 var http = require('http').Server(app);
 
-http.listen(80);
+http.listen(80, function(){
+    process.setuid(80);
+});
 
 module.exports = app;
