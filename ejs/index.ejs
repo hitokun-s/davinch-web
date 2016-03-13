@@ -16,6 +16,7 @@
     <script type="text/javascript" src="lib/jquery-tmpl/jquery.tmpl.min.js"></script>
     <script type="text/javascript" src="lib/jquery-dateFormat/dist/jquery-dateFormat.min.js"></script>
     <script type="text/javascript" src="lib/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="lib/spin-js/spin.js"></script>
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/arrow_box.css" rel="stylesheet">
     <style>
@@ -94,7 +95,7 @@
     <div class="row text-center">
         
         <div id="answer-wrapper" class="arrow_box">
-            <textarea id="answer">Answer</textarea>
+            <textarea id="answer">I'm listening...</textarea>
         </div>
         <!--<div id="img-holder" class="pull-right">-->
             <!--<img src="images/davinch.jpg" alt="">-->
@@ -114,8 +115,13 @@
                 alert("Please input a question!");
                 return;
             }
+            var target = document.getElementById('answer-wrapper');
+            var spinner = new Spinner({
+                scale:1.5
+            }).spin(target);
             $.get("http://54.238.51.103:8080/" + q, {}).done(function (data) {
                 $("#answer").val(data);
+                spinner.stop();
             });
         });
     });
