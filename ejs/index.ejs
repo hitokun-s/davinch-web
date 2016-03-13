@@ -6,12 +6,11 @@
     <meta name="description" content="QA system about Art, or AI curator">
     <meta name="author" content="Hitoshi Wada">
     <meta property="og:title" content="<%= title %>"/>
-    <meta property="og:image" content=""/>
+    <meta property="og:image" content="images/davinch.png"/>
     <meta property="og:description" content="QA system about Art, or AI curator"/>
 
     <title><%= title %></title>
     <% include js.ejs %>
-    <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
     <script type="text/javascript" src="lib/jquery-tmpl/jquery.tmpl.min.js"></script>
     <script type="text/javascript" src="lib/jquery-dateFormat/dist/jquery-dateFormat.min.js"></script>
     <script type="text/javascript" src="lib/underscore/underscore-min.js"></script>
@@ -34,11 +33,20 @@
         .form-group > *{
             margin-top: 10px;
         }
+        #img-holder{
+            height:217px;
+        }
+        #img-holder > img{
+            height:100%;
+        }
 
         #answer-wrapper {
             display: inline-block;
             padding: 10px;
             border-radius: 10px;
+        }
+        #answer-wrapper:after{
+            content: url("images/davinch.png");
         }
     </style>
 </head>
@@ -77,14 +85,19 @@
             <ul>
                 <li>What is capital of France?</li>
                 <li>What is the speed of light?</li>
-                <li>Who is the creator of mona lisa</li>
+                <li>Who is the creator of mona lisa?</li>
             </ul>
         </div>
     </div>
     <div class="row text-center">
+        
         <div id="answer-wrapper" class="arrow_box">
             <textarea id="answer">Answer</textarea>
         </div>
+        <!--<div id="img-holder" class="pull-right">-->
+            <!--<img src="images/davinch.jpg" alt="">-->
+        <!--</div>-->
+
 
     </div>
 
