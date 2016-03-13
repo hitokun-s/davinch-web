@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="ranking,popular,news,ranker">
-    <meta name="description" content="popular news ranking all over the world">
+    <meta name="keywords" content="QA system, curator">
+    <meta name="description" content="QA system about Art, or AI curator">
     <meta name="author" content="Hitoshi Wada">
     <meta property="og:title" content="<%= title %>"/>
     <meta property="og:image" content=""/>
-    <meta property="og:description" content="popular news ranking all over the world"/>
+    <meta property="og:description" content="QA system about Art, or AI curator"/>
 
     <title><%= title %></title>
     <% include js.ejs %>
@@ -28,10 +28,15 @@
             background-color: #c2e1f5;;
             border: none;
         }
+        .example{
+            padding:20px;
+        }
+        .form-group > *{
+            margin-top: 10px;
+        }
 
         #answer-wrapper {
             display: inline-block;
-            margin-top: 100px;
             padding: 10px;
             border-radius: 10px;
         }
@@ -40,30 +45,39 @@
 <body>
 <% include module/header.ejs %>
 
-<template id="template">
-    <tr id="${_id}" class="article">
-        <td>${order}</td>
-        <td class="score text-right">${score}</td>
-        <td class="content">
-            <div class="info"><span>${date}</span></div>
-            <a href="${link}" class="title" target="_blank">${title}</a><span class="badge media">${media}</span>
-        </td>
-        <td>
-            <button class="btn-graph">Graph</button>
-        </td>
-    </tr>
-</template>
+<!--<template id="template">-->
+    <!--<tr id="${_id}" class="article">-->
+        <!--<td>${order}</td>-->
+        <!--<td class="score text-right">${score}</td>-->
+        <!--<td class="content">-->
+            <!--<div class="info"><span>${date}</span></div>-->
+            <!--<a href="${link}" class="title" target="_blank">${title}</a><span class="badge media">${media}</span>-->
+        <!--</td>-->
+        <!--<td>-->
+            <!--<button class="btn-graph">Graph</button>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</template>-->
 
 <div class="container">
     <div class="row">
         <div class="form-group">
-            <div class="col-lg-10">
+            <div class="col-sm-10">
                 <input id="question" class="form-control" type="text"
                        placeholder="ex. What is capital of Italy?"/>
             </div>
-            <div class="col-lg-2">
+            <div class="col-sm-2">
                 <button class="btn btn-primary" id="btn-query">Query</button>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 example">
+            <p>Example:</p>
+            <ul>
+                <li>What is capital of France?</li>
+                <li>What is the speed of light?</li>
+            </ul>
         </div>
     </div>
     <div class="row text-center">
@@ -79,8 +93,12 @@
 <script>
     $(function () {
         $("#btn-query").click(function () {
-            $.get("http://54.238.51.103:8080/" + $("#question").val(), {}).done(function (data) {
-                console.log(data);
+            var q = $("#question").val();
+            if(q == ""){
+                alert("Please input a question!");
+                return;
+            }
+            $.get("http://54.238.51.103:8080/" + q, {}).done(function (data) {
                 $("#answer").val(data);
             });
         });
