@@ -23,6 +23,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-ejs": "*",
     "grunt": "*",
+    "grunt-sync": "*",
     "grunt-markdown": "^0.7.0",
     "grunt-md2html": "^0.3.0"
   }
