@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="QA system, curator">
+    <meta name="description" content="QA system about Art, or AI curator">
+    <meta name="author" content="Hitoshi Wada">
+    <meta property="og:title" content="<%= title %>"/>
+    <meta property="og:image" content="http://54.238.51.103/images/davinch_ori.jpg"/>
+    <meta property="og:url" content="http://54.238.51.103/">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:description" content="QA system about Art, or AI curator"/>
+
+    <title>About - <%= title %></title>
+    <% include js.ejs %>
+    <script type="text/javascript" src="lib/jquery-tmpl/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-dateFormat/dist/jquery-dateFormat.min.js"></script>
+    <script type="text/javascript" src="lib/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="lib/spin-js/spin.js"></script>
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/arrow_box.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+<% include module/header.ejs %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <% include ../md/out/about.html %>
+        </div>
+    </div>
+</div>
+<hr>
+<% include module/footer.ejs %>
+</body>
+</html>

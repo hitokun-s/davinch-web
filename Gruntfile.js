@@ -92,5 +92,5 @@ module.exports = function(grunt) {
     // とりあえず、変更があったらejs再実行、だけできればいい。
     // jsをminifyしてコピー、とかしたいならcopyタスク追加してください。
     grunt.registerTask('default',"Convert ejs templates into html templates", ['md2html', 'ejs', 'watch']);
-    grunt.registerTask('compile',"Compile ejs into html, and copy resources", ['ejs', 'sync']);
+    grunt.registerTask('compile',"Compile ejs into html, and copy resources", ['md2html', 'ejs', 'sync']);
 };
