@@ -122,6 +122,8 @@
             $.get("http://54.238.51.103:8080/" + q, {}).done(function (data) {
                 $("#answer").val(data);
                 spinner.stop();
+            }).fail(function(){
+                $("#answer").val("Sorry, I cannot understand. The question is correct sentence?");
             });
         });
     });
