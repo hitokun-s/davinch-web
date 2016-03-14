@@ -19,7 +19,7 @@ Today the world is under interaction between several smart assistants.
 We can classify them to 3 types:  
  
 1. General assistant based on general knowledge(ex. Siri, Watson)
-2. Specialized assistant based on spe(ex. Watson for medical)
+2. Specialized assistant based on specific domain(ex. Watson for medical)
 3. Personal assistant(ex. interaction between Google calendar, Gmail, Google map for your schedule)
 
 For future museum, we can think about smart curator as type 2, or hybrid system.  
