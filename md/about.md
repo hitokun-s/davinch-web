@@ -23,7 +23,7 @@ We can classify them to 3 types:
 3. Personal assistant(ex. interaction between Google calendar, Gmail, Google map for your schedule)
 
 For future museum, we can think about smart curator as type 2, or hybrid system.  
-Such assistant must do :  
+Such assistant should be able to :  
 
 - access all of data about art, artist, history, museum, or anything else if needed as curator
 - understand user( = musuem visitor) local context(ex, where the visitor is in a musuem, what the visitor is looking at now)
