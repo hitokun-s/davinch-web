@@ -17,6 +17,7 @@
     <script type="text/javascript" src="lib/jquery-dateFormat/dist/jquery-dateFormat.min.js"></script>
     <script type="text/javascript" src="lib/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="lib/spin-js/spin.js"></script>
+    <script type="text/javascript" src="js/talk.js"></script>
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/arrow_box.css" rel="stylesheet">
     <style>
@@ -50,6 +51,11 @@
         }
         #answer-wrapper:after{
             content: url("images/davinch.png");
+        }
+        #sign-talking{
+            color: red;
+            font-size: 2em;
+            display: none;
         }
     </style>
 </head>
@@ -97,18 +103,20 @@
         <div id="answer-wrapper" class="arrow_box">
             <textarea id="answer">I'm listening...</textarea>
         </div>
+        <div id="sign-talking">Talking...</div>
         <!--<div id="img-holder" class="pull-right">-->
             <!--<img src="images/davinch.jpg" alt="">-->
         <!--</div>-->
 
-
     </div>
-
 </div>
 
 <% include module/footer.ejs %>
 <script>
     $(function () {
+        $("#sign-talking").hide();
+        talk("Hello. Nice to meet you!");
+
         $("#btn-query").click(function () {
             var q = $("#question").val();
             if(q == ""){
@@ -122,8 +130,11 @@
             $.get("http://54.238.51.103:8080/" + q, {}).done(function (data) {
                 $("#answer").val(data);
                 spinner.stop();
+                talk("The answer is " + data + ".");
             }).fail(function(){
-                $("#answer").val("Sorry, I cannot understand. The question is correct sentence?");
+                var sorryMes = "Sorry, I cannot understand. The question is correct sentence?";
+                $("#answer").val(sorryMes);
+                talk(sorryMes);
             });
         });
     });
